@@ -30,7 +30,7 @@ const CardItem = (props: Props) => {
           style={styles.imageStyle}
           alt="image"
         />
-        <Text p="2" bold textAlign="center" numberOfLines={2}>
+        <Text p="2" bold textAlign="center" numberOfLines={2} color="purple.900">
           {item.title}
         </Text>
       </Box>
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 6,
     borderWidth: 0.5,
-    height: 200,
+    height: 220,
     borderColor: '#cecece',
     backgroundColor: '#fff',
   },

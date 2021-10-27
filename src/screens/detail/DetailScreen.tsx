@@ -77,7 +77,7 @@ const DetailScreen = (props: Props) => {
                   color="#9cdfb7"
                   textTransform="uppercase"
                 >
-                  {categoryName}
+                  {convertCategoryName(categoryName)}
                 </Text>
                 {/* <Button
                   m="2"

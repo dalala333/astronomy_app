@@ -80,7 +80,7 @@ const TabNav = (props: Props) => {
         tabBarStyle: {
           position: 'absolute',
           height: 60,
-          bottom: 10,
+          bottom: 16,
           right: 20,
           left: 20,
           borderRadius: 10,

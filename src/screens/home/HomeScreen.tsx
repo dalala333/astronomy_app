@@ -113,16 +113,7 @@ const HomeScreen = (props: Props) => {
           <Box width="100%" alignItems="center">
             <Container m="4">
               <Text color="#fff" fontSize={18}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
+                Aster là ứng dụng thiên văn được thành lập bởi các bạn học sinh trường Hà Nội - Amsterdam nhằm chia sẻ nhiều hơn tới cộng đồng Việt Nam đam mê của chúng mình. Chúng mình mong rằng Aster sẽ góp phần nào nhen nhóm trong các bạn tình yêu với vũ trụ bao la!
               </Text>
             </Container>
           </Box>
