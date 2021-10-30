@@ -8,10 +8,12 @@ interface Props {
   pieces: PuzzlePieces;
   setPieces: React.Dispatch<React.SetStateAction<PuzzlePieces>>;
   source: any;
+  checkWinning: () => boolean;
+  setShowModal: any;
 }
 
 const PuzzleGame = (props: Props) => {
-  const { pieces, setPieces, source } = props;
+  const { pieces, setPieces, source, checkWinning, setShowModal } = props;
   const [hidden, setHidden] = useState<number | null>(0); // piece to obscure
 
   const renderLoading = useCallback(
@@ -23,6 +25,9 @@ const PuzzleGame = (props: Props) => {
     (nextPieces: PuzzlePieces, nextHidden: number | null): void => {
       setPieces([...nextPieces]);
       setHidden(nextHidden);
+      if (checkWinning()) {
+        setShowModal(true);
+      }
     },
     [setPieces, setHidden]
   );

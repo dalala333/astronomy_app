@@ -1,8 +1,6 @@
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
-import LoadingScreen from 'components/LoadingScreen';
 // import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Box, extendTheme, NativeBaseProvider } from 'native-base';
-import Root from 'navigation/Root';
 import TabNav from 'navigation/TabNav';
 import React, { useEffect } from 'react';
 import { StatusBar, StyleSheet } from 'react-native';

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Button, Container, Image, ScrollView, Text } from 'native-base';
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { db } from 'utils/firebase';
-import { Dimensions, SafeAreaView } from 'react-native';
+import { Dimensions, SafeAreaView, TouchableOpacity } from 'react-native';
 import Header from 'components/Header';
 import { useNavigation, useRoute } from '@react-navigation/core';
 import {
@@ -30,6 +30,13 @@ const DetailScreen = (props: Props) => {
   const getData = async () => {
     const result = await getFirestoreDB(categoryName);
     setInfo(result.filter((item) => item.id === itemId)[0] as any);
+  };
+
+  const navigateGame = () => {
+    navigation.navigate('Game', {
+      categoryName,
+      itemId,
+    });
   };
 
   useEffect(() => {
@@ -77,18 +84,20 @@ const DetailScreen = (props: Props) => {
                   color="#9cdfb7"
                   textTransform="uppercase"
                 >
-                  {convertCategoryName(categoryName)}
+                  {categoryName}
                 </Text>
-                {/* <Button
-                  m="2"
-                  borderRadius={20}
-                  width="60%"
-                  size="lg"
-                  variant="outline"
-                  onPress={navigateGame}
-                >
-                  CHƠI GHÉP HÌNH
-                </Button> */}
+                <TouchableOpacity onPress={navigateGame}>
+                  <Box
+                    borderWidth={1}
+                    borderRadius={20}
+                    borderColor="#2980B9"
+                    paddingX="12"
+                    paddingY="2"
+                    mt="2"
+                  >
+                    <Text color="#2980B9">CHƠI GHÉP HÌNH</Text>
+                  </Box>
+                </TouchableOpacity>
               </Box>
               <Box alignItems="center" mt="2">
                 <Container>
