@@ -67,7 +67,7 @@ const DetailScreen = (props: Props) => {
             }
             hasBackButton
           />
-          {Object.keys(info).length > 0 ? (
+          {info && Object.keys(info).length > 0 ? (
             <>
               <Image
                 source={{ uri: info.image }}
