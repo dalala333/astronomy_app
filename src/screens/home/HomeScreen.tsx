@@ -28,10 +28,10 @@ const HomeScreen = (props: Props) => {
     const [
       astrologyList,
       auroraList,
-      // binaryStarList,
+      binaryStarList,
       // blackHoleList,
       darkMatterList,
-      // dwarfList,
+      dwarfList,
       // eclipseList,
       galaxyList,
       meteorList,
@@ -43,10 +43,10 @@ const HomeScreen = (props: Props) => {
     objectList = {
       astrology: astrologyList,
       aurora: auroraList,
-      // binarystar: binaryStarList,
+      binary: binaryStarList,
       // blackhole: blackHoleList,
       darkmatter: darkMatterList,
-      // dwarf: dwarfList,
+      dwarfStar: dwarfList,
       // eclipse: eclipseList,
       galaxy: galaxyList,
       meteor: meteorList,
@@ -55,20 +55,22 @@ const HomeScreen = (props: Props) => {
     };
   };
 
-  const exploreBtn = () => {
-    const categoryNameRandom =
-      collection_list[Math.floor(Math.random() * collection_list.length)];
-    const listRandom = objectList[categoryNameRandom];
-    const itemRandom =
-      listRandom[Math.floor(Math.random() * listRandom.length)];
-    navigation.navigate('Category', {
-      screen: 'DetailScreen',
-      params: {
-        categoryName: categoryNameRandom,
-        itemId: itemRandom.id,
-      },
-    });
-  };
+  // const exploreBtn = () => {
+  //   const categoryNameRandom =
+  //     collection_list[Math.floor(Math.random() * collection_list.length)];
+  //   const listRandom = objectList[categoryNameRandom];
+
+  //   const itemRandom =
+  //     listRandom[Math.floor(Math.random() * listRandom.length)];
+  //   navigation.navigate('Category', {
+  //     screen: 'DetailScreen',
+  //     params: {
+  //       categoryName: categoryNameRandom,
+  //       itemId: itemRandom.id,
+  //     },
+  //   });
+  // };
+
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => {
@@ -78,7 +80,13 @@ const HomeScreen = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    getData();
+    let isMounted = true;
+    if (isMounted) {
+      getData();
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -113,16 +121,19 @@ const HomeScreen = (props: Props) => {
           <Box width="100%" alignItems="center">
             <Container m="4">
               <Text color="#fff" fontSize={18}>
-                Aster là ứng dụng thiên văn được thành lập bởi các bạn học sinh trường Hà Nội - Amsterdam nhằm chia sẻ nhiều hơn tới cộng đồng Việt Nam đam mê của chúng mình. Chúng mình mong rằng Aster sẽ góp phần nào nhen nhóm trong các bạn tình yêu với vũ trụ bao la!
+                Aster là ứng dụng thiên văn được thành lập bởi các bạn học sinh
+                trường Hà Nội - Amsterdam nhằm chia sẻ nhiều hơn tới cộng đồng
+                Việt Nam đam mê của chúng mình. Chúng mình mong rằng Aster sẽ
+                góp phần nào nhen nhóm trong các bạn tình yêu với vũ trụ bao la!
               </Text>
             </Container>
           </Box>
           <Box alignItems="center">
-            <TouchableOpacity onPress={exploreBtn}>
+            {/* <TouchableOpacity onPress={exploreBtn}>
               <Box style={styles.boxStyle}>
                 <Text color="#FFF">Khám phá ngay</Text>
               </Box>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </Box>
         </Box>
       </ScrollView>

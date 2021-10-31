@@ -24,7 +24,6 @@ const PuzzleGame = (props: Props) => {
   const checkWinning = (nextPieces: any) => {
     let count = 0;
     nextPieces.map((value: any, index: any) => {
-      console.log(value, index);
       if (value !== index) {
         count++;
       }
@@ -45,9 +44,15 @@ const PuzzleGame = (props: Props) => {
   );
 
   useEffect(() => {
-    setPieces(
-      samples_puzzle[Math.floor(Math.random() * samples_puzzle.length)]
-    );
+    let isMounted = true;
+    if (isMounted) {
+      setPieces(
+        samples_puzzle[Math.floor(Math.random() * samples_puzzle.length)]
+      );
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

@@ -40,7 +40,13 @@ const DetailScreen = (props: Props) => {
   };
 
   useEffect(() => {
-    getData();
+    let isMounted = true;
+    if (isMounted) {
+      getData();
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -75,7 +81,7 @@ const DetailScreen = (props: Props) => {
                 alt="image_star"
               />
               <Box alignItems="center">
-                <Text bold fontSize={32} m="2" color="#fff">
+                <Text bold fontSize={32} m="2" color="#fff" maxWidth="90%">
                   {info.title}
                 </Text>
                 <Text
@@ -84,7 +90,7 @@ const DetailScreen = (props: Props) => {
                   color="#9cdfb7"
                   textTransform="uppercase"
                 >
-                  {categoryName}
+                  {convertCategoryName(categoryName)}
                 </Text>
                 <TouchableOpacity onPress={navigateGame}>
                   <Box

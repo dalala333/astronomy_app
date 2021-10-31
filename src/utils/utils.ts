@@ -25,26 +25,26 @@ export interface IRoute {
 export const convertCategoryName = (name: string) => {
   switch (name) {
     case 'astrology':
-      return 'Astrology';
+      return 'Cung Hoàng Đạo';
     case 'aurora':
-      return 'Aurora';
-    case 'binarystar':
-      return 'Binary Star';
+      return 'Cực Quang';
+    case 'binary':
+      return 'Sao Đôi';
     case 'blackhole':
-      return 'Black Hole';
+      return 'Hố đen';
     case 'darkmatter':
-      return 'Dark Matter';
-    case 'dwarf':
-      return 'Dwarf';
+      return 'Vật chất tối';
+    case 'dwarfStar':
+      return 'Sao lùn';
     case 'eclipse':
-      return 'Eclipse';
+      return 'Nguyệt Thực & Nhật Thực';
     case 'galaxy':
-      return 'Galaxy';
+      return 'Thiên Hà';
     case 'meteor':
-      return 'Meteor';
+      return 'Sao Băng';
     case 'meteorite':
-      return 'Meteorite';
+      return 'Thiên Thạch';
     case 'planet':
-      return 'Planet';
+      return 'Hệ mặt trời';
   }
 };

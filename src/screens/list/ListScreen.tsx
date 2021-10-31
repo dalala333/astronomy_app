@@ -30,7 +30,13 @@ const ListScreen = (props: Props) => {
   };
 
   useEffect(() => {
-    loadData();
+    let isMounted = true;
+    if (isMounted) {
+      loadData();
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

@@ -3,7 +3,7 @@ import { Box, Image, Text } from 'native-base';
 import React from 'react';
 import { Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import { backgroundColor } from 'styled-system';
-import { IDataType } from 'utils/utils';
+import { convertCategoryName, IDataType } from 'utils/utils';
 
 interface Props {
   item: IDataType[];
@@ -33,7 +33,7 @@ const CardCategory = (props: Props) => {
           alt="image"
         />
         <Text m="1" bold textTransform="uppercase">
-          {categoryName}
+          {convertCategoryName(categoryName)}
         </Text>
         <Text m="1" italic>
           Bao gồm có {item.length} loại

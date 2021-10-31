@@ -14,10 +14,10 @@ const firebaseConfig = {
 export const collection_list = [
   'astrology',
   'aurora',
-  // 'binarystar',
+  'binary',
   // 'blackhole',
   'darkmatter',
-  // 'dwarf',
+  'dwarfStar',
   // 'eclipse',
   'galaxy',
   'meteor',

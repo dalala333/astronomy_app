@@ -80,7 +80,13 @@ const GameScreen = (props: Props) => {
   }, [counting]);
 
   useEffect(() => {
-    getData();
+    let isMounted = true;
+    if (isMounted) {
+      getData();
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   if (info && Object.keys(info).length === 0) {

@@ -15,10 +15,10 @@ const CategoryScreen = (props: Props) => {
   const [categoryList, setCategoryList] = useState<any>({
     astrology: [],
     aurora: [],
-    // binarystar: [],
+    binary: [],
     // blackhole: [],
     darkmatter: [],
-    // dwarf: [],
+    dwarfStar: [],
     // eclipse: [],
     galaxy: [],
     meteor: [],
@@ -30,10 +30,10 @@ const CategoryScreen = (props: Props) => {
     const [
       astrologyList,
       auroraList,
-      // binaryStarList,
+      binaryList,
       // blackHoleList,
       darkMatterList,
-      // dwarfList,
+      dwarfList,
       // eclipseList,
       galaxyList,
       meteorList,
@@ -46,10 +46,10 @@ const CategoryScreen = (props: Props) => {
       ...categoryList,
       astrology: astrologyList,
       aurora: auroraList,
-      // binarystar: binaryStarList,
+      binary: binaryList,
       // blackhole: blackHoleList,
       darkmatter: darkMatterList,
-      // dwarf: dwarfList,
+      dwarfStar: dwarfList,
       // eclipse: eclipseList,
       galaxy: galaxyList,
       meteor: meteorList,
@@ -59,7 +59,13 @@ const CategoryScreen = (props: Props) => {
   };
 
   useEffect(() => {
-    getData();
+    let isMounted = true;
+    if (isMounted) {
+      getData();
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
